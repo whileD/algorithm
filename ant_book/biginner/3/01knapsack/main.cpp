@@ -16,7 +16,7 @@ int dp(int n, int j) { // n個目,現在jの重さ
   if (n == N) return 0; // 入れるものが無い場合
   if (table[n][j] > 0) return table[n][j];
   if (w[n] > j) return dp(n+1, j); // 入れられない場合
-  return max(dp(n+1, j), dp(n+1, j-w[n]) + v[n]); // 入れない場合と入れる場合で大きい方を返す
+  return memo[n][j] = max(dp(n+1, j), dp(n+1, j-w[n]) + v[n]); // 入れない場合と入れる場合で大きい方を返す
 } 
 
 int main(){
